@@ -22,7 +22,9 @@ public class CurrencyService {
     }
 
     public CurrencyDto getExchangeRate(String from, String to) {
-        CurrencyRate rate = currencyRepository.findByFromCurrencyAndToCurrency(from, to);
+        // ✅ ПРАВИЛЬНО: Обрабатываем Optional
+        CurrencyRate rate = currencyRepository.findByFromCurrencyAndToCurrency(from, to)
+                .orElseThrow(() -> new RuntimeException("Курс не найден для " + from + " → " + to));
         return currencyMapper.toDto(rate);
     }
 
