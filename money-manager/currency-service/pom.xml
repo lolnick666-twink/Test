@@ -5,7 +5,6 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- НАСЛЕДУЕМ КОРНЕВОЙ ПРОЕКТ -->
     <parent>
         <groupId>com.example</groupId>
         <artifactId>money-manager</artifactId>
@@ -41,4 +40,14 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <!-- КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: Активация компилятора -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
